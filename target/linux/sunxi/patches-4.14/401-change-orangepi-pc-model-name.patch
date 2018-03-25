@@ -1,0 +1,11 @@
+--- a/arch/arm/boot/dts/sun8i-h3-orangepi-pc.dts
++++ b/arch/arm/boot/dts/sun8i-h3-orangepi-pc.dts
+@@ -48,7 +48,7 @@
+ #include <dt-bindings/input/input.h>
+ 
+ / {
+-	model = "Xunlong Orange Pi PC";
++	model = "VIDTOO mini model A";
+ 	compatible = "xunlong,orangepi-pc", "allwinner,sun8i-h3";
+ 
+ 	aliases {

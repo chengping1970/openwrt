@@ -1,0 +1,41 @@
+--- a/arch/arm/boot/dts/sun8i-h2-plus-orangepi-r1.dts
++++ b/arch/arm/boot/dts/sun8i-h2-plus-orangepi-r1.dts
+@@ -44,7 +44,7 @@
+ #include "sun8i-h2-plus-orangepi-zero.dts"
+ 
+ / {
+-	model = "Xunlong Orange Pi R1";
++	model = "VIDTOO mini model B";
+ 	compatible = "xunlong,orangepi-r1", "allwinner,sun8i-h2-plus";
+ 
+ 	/delete-node/ reg_vcc_wifi;
+@@ -76,6 +76,14 @@
+ 	};
+ };
+ 
++&ehci2 {
++	status = "okay";
++};
++
++&ehci3 {
++	status = "okay";
++};
++
+ &ohci1 {
+ 	/*
+ 	 * RTL8152B USB-Ethernet adapter is connected to USB1,
+@@ -85,6 +93,14 @@
+ 	status = "disabled";
+ };
+ 
++&ohci2 {
++	status = "okay";
++};
++
++&ohci3 {
++	status = "okay";
++};
++
+ &mmc1 {
+ 	vmmc-supply = <&reg_vcc3v3>;
+ 	vqmmc-supply = <&reg_vcc3v3>;

@@ -1,0 +1,43 @@
+--- a/common/autoboot.c
++++ b/common/autoboot.c
+@@ -14,11 +14,13 @@
+ #include <menu.h>
+ #include <post.h>
+ #include <u-boot/sha256.h>
++#include <dm.h>
++#include <asm/gpio.h>
+ 
+ DECLARE_GLOBAL_DATA_PTR;
+ 
+ #define MAX_DELAY_STOP_STR 32
+-
++#define STOP_ATUOBOOT_LOCAL_KEY	1
+ #ifndef DEBUG_BOOTKEYS
+ #define DEBUG_BOOTKEYS 0
+ #endif
+@@ -250,7 +252,24 @@
+ 	}
+ 
+ 	putc('\n');
+-
++#if STOP_ATUOBOOT_LOCAL_KEY
++        for (int retry = 0; retry < 3; retry++)
++        {
++	        gpio_request(10, "cmd_gpio");
++                gpio_direction_input(10);
++                if (0 == gpio_get_value(10)) {
++                         return 1;
++                }
++
++                if (2 == retry) {
++                    putc(' ');
++                }
++                else {
++		    putc('#');
++                }
++                udelay(10000);
++        }
++#endif     
+ 	return abort;
+ }
+ # endif	/* CONFIG_AUTOBOOT_KEYED */
