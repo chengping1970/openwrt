@@ -1,0 +1,8 @@
+--- a/configs/orangepi_pc_defconfig
++++ b/configs/orangepi_pc_defconfig
+@@ -17,3 +17,5 @@
+ CONFIG_SUN8I_EMAC=y
+ CONFIG_SY8106A_POWER=y
+ CONFIG_USB_EHCI_HCD=y
++CONFIG_SPL_SPI_SUNXI=y
++CONFIG_SPL_SPI_FLASH_SUPPORT=y
