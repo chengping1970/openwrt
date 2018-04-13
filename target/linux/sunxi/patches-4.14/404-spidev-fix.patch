@@ -1,0 +1,11 @@
+--- a/drivers/spi/spidev.c
+--- b/drivers/spi/spidev.c
+@@ -670,6 +670,8 @@
+ 	{ .compatible = "ge,achc" },
+ 	{ .compatible = "semtech,sx1301" },
+ 	{ .compatible = "siliconlabs,si3210" },
++        { .compatible = "allwinner,sun4i-a10-spi" },
++        { .compatible = "allwinner,sun6i-a31-spi" },
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, spidev_dt_ids);
