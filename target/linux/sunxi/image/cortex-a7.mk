@@ -125,6 +125,15 @@ endef
 
 TARGET_DEVICES += sun8i-h2-plus-orangepi-zero
 
+define Device/sun8i-h2-plus-vidtoo-model-A
+  DEVICE_TITLE:=Hangzhou vidtoo model A
+  DEVICE_PACKAGES:=kmod-rtc-sunxi
+  SUPPORTED_DEVICES:=vidtoo,h2-plus-model-A
+  SUNXI_DTS:=sun8i-h2-plus-vidtoo-model-A
+endef
+
+TARGET_DEVICES += sun8i-h2-plus-vidtoo-model-A
+
 define Device/sun8i-h3-nanopi-m1-plus
   DEVICE_TITLE:=FriendlyArm NanoPi M1 Plus
   DEVICE_PACKAGES:=kmod-rtc-sunxi \
