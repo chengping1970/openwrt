@@ -162,6 +162,12 @@ define U-Boot/vidtoo_model_A
   BUILD_DEVICES:=sun8i-h2-plus-vidtoo-model-A
 endef
 
+define U-Boot/vidtoo_model_B
+  BUILD_SUBTARGET:=cortexa7
+  NAME:=VIDTOO Model B (H2+)
+  BUILD_DEVICES:=sun8i-h2-plus-vidtoo-model-B
+endef
+
 define U-Boot/orangepi_pc
   BUILD_SUBTARGET:=cortexa7
   NAME:=Orange Pi PC (H3)
@@ -235,6 +241,7 @@ UBOOT_TARGETS := \
 	orangepi_r1 \
 	orangepi_zero \
 	vidtoo_model_A \
+	vidtoo_model_B \
 	orangepi_pc \
 	orangepi_plus \
 	orangepi_2 \

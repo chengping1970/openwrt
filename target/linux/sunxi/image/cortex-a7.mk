@@ -116,6 +116,15 @@ endef
 
 TARGET_DEVICES += sun8i-h2-plus-orangepi-r1
 
+define Device/sun8i-h2-plus-vidtoo-model-B
+  DEVICE_TITLE:=Hangzhou vidtoo model B
+  DEVICE_PACKAGES:=kmod-rtc-sunxi kmod-usb-net kmod-usb-net-rtl8152
+  SUPPORTED_DEVICES:=vidtoo,h2-plus-model-B
+  SUNXI_DTS:=sun8i-h2-plus-vidtoo-model-B
+endef
+
+TARGET_DEVICES += sun8i-h2-plus-vidtoo-model-B
+
 define Device/sun8i-h2-plus-orangepi-zero
   DEVICE_TITLE:=Xunlong Orange Pi Zero
   DEVICE_PACKAGES:=kmod-rtc-sunxi
