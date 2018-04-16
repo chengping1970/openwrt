@@ -29,13 +29,19 @@ define Build/sunxi-sdcard
 	rm -f $@.boot
 endef
 
+define Device/vidtoo-model-A
+  IMAGES := sysupgrade.bin
+  IMAGE/sysupgrade.bin := append-rootfs | append-metadata
+endef
+
 # why \x00\x00\x00\x00 for zImage-initramfs
 define Device/Default
   PROFILES := Default
   DEVICE_VARS := SUNXI_DTS SUNXI_UBOOT
   KERNEL_NAME := zImage
   KERNEL := kernel-bin | uImage none
-  IMAGES := sdcard.img.gz
+  IMAGES := sysupgrade.bin sdcard.img.gz
+  IMAGE/sysupgrade.bin := append-rootfs | append-metadata
   IMAGE/sdcard.img.gz := sunxi-sdcard | append-metadata | gzip
 endef
 
