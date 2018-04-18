@@ -10,7 +10,7 @@
  	sun8i-h3-beelink-x2.dtb \
 --- /dev/null
 +++ b/arch/arm/boot/dts/sun8i-h2-plus-vidtoo-model-B.dts
-@@ -0,0 +1,58 @@
+@@ -0,0 +1,71 @@
 +/*
 + * Copyright (C) 2017 Icenowy Zheng <icenowy@aosc.xyz>
 + *
@@ -59,6 +59,15 @@
 +/ {
 +	model = "vidtoo h2 plus model B";
 +	compatible = "vidtoo,h2-plus-model-B", "allwinner,sun8i-h2-plus";
++
++	reg_vcc_usb_eth: reg-vcc-usb-ethernet {
++		compatible = "regulator-fixed";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		regulator-name = "vcc-usb-ethernet";
++		enable-active-high;
++		gpio = <&pio 0 20 GPIO_ACTIVE_HIGH>;
++	};
 +};
 +
 +&ohci1 {
@@ -68,4 +77,8 @@
 +	 * can be left disabled.
 +	 */
 +	status = "disabled";
++};
++
++&usbphy {
++	usb1_vbus-supply = <&reg_vcc_usb_eth>;
 +};
