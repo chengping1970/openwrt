@@ -3,7 +3,7 @@ platform_check_image() {
 }
 
 platform_do_upgrade() {	
-	echo "1" > /sys/class/leds/red\:status/brightness
+	echo "0" > /sys/class/leds/red\:status/brightness
 	if [ "$SAVE_CONFIG" -eq 1 ]; then
 		echo "keep config"
 	else

@@ -10,7 +10,7 @@
  	sun8i-h3-nanopi-m1.dtb	\
 --- /dev/null
 +++ b/arch/arm/boot/dts/sun8i-h2-plus-vidtoo-model-A.dts
-@@ -0,0 +1,229 @@
+@@ -0,0 +1,230 @@
 + /*
 +  * Copyright (C) 2016 Icenowy Zheng <icenowy@aosc.xyz>
 +  *
@@ -89,6 +89,7 @@
 + 		status_led {
 + 			label = "red:status";
 + 			gpios = <&pio 0 15 GPIO_ACTIVE_HIGH>;
++			default-state = "on";
 + 		};
 + 	};
 + 
