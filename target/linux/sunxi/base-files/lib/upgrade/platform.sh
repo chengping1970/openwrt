@@ -9,5 +9,13 @@ platform_do_upgrade() {
 	else
 		mtd erase rootfs_data
 	fi
-	mtd write /tmp/firmware.img rootfs
+	tar xvf /tmp/firmware.img -C /tmp
+        if [ -d "/tmp/sysupgrade-sun8i-h2-plus-vidtoo-model-A" ]; then
+                echo "upgrade kernel and rootfs"
+                mtd write /tmp/sysupgrade-sun8i-h2-plus-vidtoo-model-A/kernel kernel
+                mtd write /tmp/sysupgrade-sun8i-h2-plus-vidtoo-model-A/root rootfs
+        else
+                echo "upgrade rootfs"
+                mtd write /tmp/firmware.img rootfs
+        fi
 }
